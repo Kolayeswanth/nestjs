@@ -1,8 +1,5 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+export default function handler(req: VercelRequest, res: VercelResponse) {
+  res.status(200).send('Hello, world!');
 }
-bootstrap();
